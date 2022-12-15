@@ -13,6 +13,3 @@ backend/*/*/*/__pycache__/
 bakcend/.env/
 backend/.venv/
 backend/venv/
-.env/
-.venv/
-venv/
