@@ -48,11 +48,9 @@ class BusinessView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self,request, *args, **kwargs):
-        # social media
-        # address
         serializer = BusinessSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(owner=self.request.user)
+            serializer.save()
             return Response(serializer.data, status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

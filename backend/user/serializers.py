@@ -85,20 +85,9 @@ class BusinessSerializer(serializers.ModelSerializer):
         depth = 1
 
     def create(self, validated_data):
-        # address = validated_data.pop('address')
-        social_media = validated_data.pop('social_media')
-        print(social_media)
-        # address = Address.objects.create(**address)
+        address = validated_data.pop('address')
         business = Business.objects.create(**validated_data)
-        #social_media = SocialMedia.objects.create(**social_media, business=business)
-
-        # if social_media is not None:
-        #     social_media = SocialMedia.objects.create(**social_media)
-        #     social_media.business = business
-        #     social_media.save()
-        #     return {business, social_media}
-        # else:
-        return business
+        return address
 
 
 class ClientSerializer(serializers.ModelSerializer):
